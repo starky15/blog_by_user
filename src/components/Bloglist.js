@@ -3,6 +3,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchPosts } from '../actions';
 
+import UserHeader from './UserHeader';
+
 class Bloglist extends React.Component{
     componentDidMount(){
         this.props.fetchPosts();
@@ -15,9 +17,12 @@ class Bloglist extends React.Component{
                 <div className="item">
                 <div className="ui avatar large middle aligned image"><i className="blogger icon"></i></div>
                 <div className="content">
-                    <div className="header">{x.title}</div>
+                    <div className="header"><h3>{x.title}</h3></div>
                     <div className="description">{x.body}</div>
+
+                    <div> <UserHeader userID = {x.userId}/></div>
                 </div>
+
                 </div>
                 <hr />
             </div>
